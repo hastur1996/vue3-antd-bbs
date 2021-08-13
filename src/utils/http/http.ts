@@ -1,17 +1,33 @@
 import axios from "axios";
 import qs from "qs";
-import store from "../store";
-import { Alert } from "ant-design-vue"
+import store from "../../store";
+import router from "../../router";
+import { message as Message, Modal } from "ant-design-vue"
 
-const tip = (message: String) => {
-
+const tip = (reason: String) => {
+    Message.error(reason);
 };
 
+//登陆超时，或者token失效返回登陆页面
 const toLogin = () => {
+    if(router.currentRoute.value.name == 'login') return
 
+    Modal.destroyAll();
+    Modal.warning({
+        title: '提示',
+        content: '登录身份已失效,请重新登录!',
+        onOk: ()=>{
+            router.replace({
+                name: 'login',
+                query: {
+                    redirect: router.currentRoute.value.fullPath
+                }
+            })
+        }
+    })
 };
 
-const errorHandle = (status: Number, message: String) => {
+const errorHandle = (status: Number, reason: String) => {
 
 };
 //创建axios 实例
@@ -43,7 +59,7 @@ instance.interceptors.response.use(
         const { response } = error;
         if(response) {
             //请求已发出， 不在2XX范围内
-            errorHandle(response.status, response.data.message);
+            errorHandle(response.status, response.data.reason);
             return Promise.reject(response)
         }   else {
             //处理断网情况
