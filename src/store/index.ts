@@ -1,19 +1,19 @@
 import {createStore} from 'vuex'
+import userInfo from './modules/userInfo';
 
 const store = createStore({
-    state: {
-        count: 0,
-        token: null
-    },
-    mutations: {
-
-    },
-    getters: {
-
-    },
-    actions: {
-        
+  state: {
+    token: '',
+    netWork: true,
+  },
+  modules: {
+    userInfo
+  },
+  mutations: {
+    changeNetWork(state, params: boolean) {
+      state.netWork = params;
     }
+  }
 })
 
 export default store;

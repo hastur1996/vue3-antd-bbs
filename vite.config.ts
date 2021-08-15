@@ -10,10 +10,10 @@ export default defineConfig({
     alias: {
       '@': resolve('src'),
       comps: resolve('src/components'),
-      apis: resolve('src/apis'),
+      api: resolve('src/api'),
       views: resolve('src/views'),
       utils: resolve('src/utils'),
-      routes: resolve('src/routes'),
+      router: resolve('src/router'),
       styles: resolve('src/styles')
     }
   },
