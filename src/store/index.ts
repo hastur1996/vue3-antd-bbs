@@ -12,6 +12,9 @@ const store = createStore({
   mutations: {
     changeNetWork(state, params: boolean) {
       state.netWork = params;
+    },
+    setToken(state, params: string) {
+      state.token = params
     }
   }
 })
