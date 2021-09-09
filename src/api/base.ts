@@ -1,4 +1,9 @@
-const base = {
+interface BaseUrl {
+  sq: string,
+  pq: string
+}
+
+const base: BaseUrl = {
   sq: '',
   pq: ''
 }

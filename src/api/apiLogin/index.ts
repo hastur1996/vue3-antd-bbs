@@ -12,4 +12,4 @@ const apiLogin = {
     return axios.post(`${base.sq}/login`, qs.stringify(params));
   }
 }
-export default apiLogin
+export default apiLogin 
