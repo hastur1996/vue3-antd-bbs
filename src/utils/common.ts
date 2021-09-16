@@ -36,11 +36,11 @@ export function debounce(this: any,func: any, wait: number = 500, immediate: boo
  * @param wait 等待时间，默认500ms
  * @param immediate 是否立即执行
  */
-interface Ioptions {
+interface Options {
   leading: boolean, //函数在每个等待时延的开始被调用，默认值为false
   trailing: boolean //函数在每个等待时延的结束被调用，默认值是true
 }
-export function throttle(this: any,func: any, wait: number = 500, options: Ioptions): any {
+export function throttle(this: any,func: any, wait: number = 500, options: Options): any {
   let timmer: any = null
   let args: any = null
   let context: any = this

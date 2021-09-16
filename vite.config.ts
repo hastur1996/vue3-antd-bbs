@@ -14,7 +14,8 @@ export default defineConfig({
       views: resolve('src/views'),
       utils: resolve('src/utils'),
       router: resolve('src/router'),
-      styles: resolve('src/styles')
+      styles: resolve('src/styles'),
+      asserts: resolve('src/assets')
     }
   },
   server: {
